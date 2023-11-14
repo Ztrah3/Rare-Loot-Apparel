@@ -10,23 +10,29 @@ import {
 
 import { SignInContainer, ButtonsContainer } from './sign-in-form.styles';
 
+// Defining the default form fields
 const defaultFormFields = {
   email: '',
   password: '',
 };
 
+// Defining the SignInForm component
 const SignInForm = () => {
+  // Using useState to manage the form fields
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
 
+  // Function for resetting the form fields
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
 
+  // Function for signing in with Google
   const signInWithGoogle = async () => {
     await signInWithGooglePopup();
   };
 
+  // Handler function for form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -38,12 +44,14 @@ const SignInForm = () => {
     }
   };
 
+  // Handler function for form field changes
   const handleChange = (event) => {
     const { name, value } = event.target;
 
     setFormFields({ ...formFields, [name]: value });
   };
 
+  // Rendering the sign in form
   return (
     <SignInContainer>
       <h2>Already have an account?</h2>

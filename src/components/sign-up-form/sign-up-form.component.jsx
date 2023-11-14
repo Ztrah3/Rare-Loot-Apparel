@@ -17,28 +17,35 @@ const defaultFormFields = {
   confirmPassword: '',
 };
 
+// Defining the default form fields
 const SignUpForm = () => {
+  // Using useState to manage the form fields
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
 
+  // Function for resetting the form fields
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
 
+  // Handler function for form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    // Checking if the passwords match
     if (password !== confirmPassword) {
       alert('passwords do not match');
       return;
     }
 
     try {
+      // Creating the user with the entered email and password
       const { user } = await createAuthUserWithEmailAndPassword(
         email,
         password
       );
-
+      
+      // Creating a document for the user in the database
       await createUserDocumentFromAuth(user, { displayName });
       resetFormFields();
     } catch (error) {
@@ -50,12 +57,14 @@ const SignUpForm = () => {
     }
   };
 
+  // Handler function for form field changes
   const handleChange = (event) => {
     const { name, value } = event.target;
 
     setFormFields({ ...formFields, [name]: value });
   };
 
+  // Rendering the sign up form
   return (
     <SignUpContainer>
       <h2>Don't have an account?</h2>

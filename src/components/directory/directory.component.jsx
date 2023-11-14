@@ -2,6 +2,7 @@ import DirectoryItem from '../directory-item/directory-item.component';
 
 import { DirectoryContainer } from './directory.styles';
 
+// Defining the categories data
 const categories = [
   {
     id: 1,
@@ -35,10 +36,13 @@ const categories = [
   },
 ];
 
+// Defining the Directory component
 const Directory = () => {
+  // Rendering the directory
   return (
     <DirectoryContainer>
       {categories.map((category) => (
+        // Mapping over the categories and rendering a DirectoryItem for each
         <DirectoryItem key={category.id} category={category} />
       ))}
     </DirectoryContainer>
