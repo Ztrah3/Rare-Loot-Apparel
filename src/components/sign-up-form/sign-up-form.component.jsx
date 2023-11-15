@@ -9,7 +9,7 @@ import {
 } from '../../utils/firebase/firebase.utils';
 
 import { SignUpContainer } from './sign-up-form.styles';
-
+// Defining the default form fields
 const defaultFormFields = {
   displayName: '',
   email: '',
@@ -17,7 +17,6 @@ const defaultFormFields = {
   confirmPassword: '',
 };
 
-// Defining the default form fields
 const SignUpForm = () => {
   // Using useState to manage the form fields
   const [formFields, setFormFields] = useState(defaultFormFields);

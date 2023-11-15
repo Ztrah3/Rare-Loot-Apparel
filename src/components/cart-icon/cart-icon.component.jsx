@@ -13,7 +13,6 @@ import { CartIconContainer, ItemCount } from './cart-icon.styles';
 const CartIcon = () => {
   // Getting the dispatch function from Redux
   const dispatch = useDispatch();
-  // Getting the dispatch function from Redux
   const isCartOpen = useSelector(selectIsCartOpen);
   const cartCount = useSelector(selectCartCount);
 
